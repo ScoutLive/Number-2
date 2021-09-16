@@ -166,7 +166,43 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 		}
+case 'omori':
+				tex = Paths.getSparrowAtlas('characters/omori_assets','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'omori idle', 24, false);
+				animation.addByPrefix('singUP', 'omori up note', 24, false);
+				animation.addByPrefix('singRIGHT', 'omori right note', 24, false);
+				animation.addByPrefix('singLEFT', 'omori left note', 24, false);
+				animation.addByPrefix('singDOWN', 'omori down note', 24, false);
 
+				addOffset("singUP", 75, 18);
+				addOffset("singRIGHT", -15, -10);
+				addOffset("singLEFT", 40, 4);
+				addOffset("singDOWN", -26, -43);
+
+				playAnim('idle');
+case 'nonsense':
+				if (!FlxG.save.data.event){
+					frames = Paths.getSparrowAtlas('Nonsense/Nonsense');
+					animation.addByPrefix('singUP', 'NoteUp', 24, false);
+					animation.addByPrefix('singDOWN', 'NoteDown', 24, false);
+					animation.addByPrefix('singLEFT', 'NoteLeft', 24, false);
+					animation.addByPrefix('singRIGHT', 'NoteRight', 24, false);
+					animation.addByIndices('danceLeft', 'Idle', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
+					animation.addByIndices('danceRight', 'Idle', [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "", 24, false);
+					animation.addByPrefix('sweat', 'oh no', 24, false);
+					animation.addByPrefix('bruh', 'Bruh', 24, false);
+					
+					
+					addOffset('danceLeft');
+					addOffset('danceRight');
+					addOffset("singUP", 14, 17);
+					addOffset("singRIGHT", 20, -10);
+					addOffset("singLEFT", 7, -18);
+					addOffset("singDOWN", -2, -52);
+					addOffset("sweat", -8, -4);
+					addOffset('bruh');
+					playAnim('danceRight');
 		dance();
 
 		if (isPlayer)
@@ -325,40 +361,3 @@ class Character extends FlxSprite
 		animOffsets[name] = [x, y];
 	}
 }
-case 'omori':
-				tex = Paths.getSparrowAtlas('characters/omori_assets','shared');
-				frames = tex;
-				animation.addByPrefix('idle', 'omori idle', 24, false);
-				animation.addByPrefix('singUP', 'omori up note', 24, false);
-				animation.addByPrefix('singRIGHT', 'omori right note', 24, false);
-				animation.addByPrefix('singLEFT', 'omori left note', 24, false);
-				animation.addByPrefix('singDOWN', 'omori down note', 24, false);
-
-				addOffset("singUP", 75, 18);
-				addOffset("singRIGHT", -15, -10);
-				addOffset("singLEFT", 40, 4);
-				addOffset("singDOWN", -26, -43);
-
-				playAnim('idle');
-case 'nonsense':
-				if (!FlxG.save.data.event){
-					frames = Paths.getSparrowAtlas('Nonsense/Nonsense');
-					animation.addByPrefix('singUP', 'NoteUp', 24, false);
-					animation.addByPrefix('singDOWN', 'NoteDown', 24, false);
-					animation.addByPrefix('singLEFT', 'NoteLeft', 24, false);
-					animation.addByPrefix('singRIGHT', 'NoteRight', 24, false);
-					animation.addByIndices('danceLeft', 'Idle', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
-					animation.addByIndices('danceRight', 'Idle', [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "", 24, false);
-					animation.addByPrefix('sweat', 'oh no', 24, false);
-					animation.addByPrefix('bruh', 'Bruh', 24, false);
-					
-					
-					addOffset('danceLeft');
-					addOffset('danceRight');
-					addOffset("singUP", 14, 17);
-					addOffset("singRIGHT", 20, -10);
-					addOffset("singLEFT", 7, -18);
-					addOffset("singDOWN", -2, -52);
-					addOffset("sweat", -8, -4);
-					addOffset('bruh');
-					playAnim('danceRight');
